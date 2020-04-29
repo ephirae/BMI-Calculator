@@ -1,10 +1,12 @@
-import 'package:bmi_calculator/results_page.dart';
+import 'file:///C:/Users/MaryM/Documents/GitHub/BMI-Calculator/lib/Pages/results_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_content.dart';
-import 'constants.dart';
+import '../Components/reusable_card.dart';
+import '../Components/gender_icon.dart';
+import '../constants.dart';
+import '../Components/bottom_button.dart';
+import '../Components/round_icon.dart';
 
 enum Gender {
   male,
@@ -254,8 +256,9 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          BottomButton(
+            buttonText: 'CALCULATE',
+            function: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -265,42 +268,9 @@ class _InputPageState extends State<InputPage> {
                 ),
               );
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: kNumTextStyle,
-                ),
-              ),
-              color: kBottomContainerColour,
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
-          )
+          ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({@required this.icon, @required this.function});
-
-  final IconData icon;
-  final Function function;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      elevation: 0,
-      child: Icon(icon),
-      onPressed: function,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5),
-      ),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(width: 36, height: 36),
     );
   }
 }
