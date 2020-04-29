@@ -3,16 +3,24 @@ import 'file:///C:/Users/MaryM/Documents/GitHub/BMI-Calculator/lib/Components/re
 import 'package:flutter/material.dart';
 import '../Components/bottom_button.dart';
 
+
+
+
 class ResultsPage extends StatelessWidget {
 
-  ResultsPage({@required this.bmi, @required this.classification, @required this.interpretation,});
+  ResultsPage({@required this.bmi, @required this.classification, @required this.interpretation});
 
   final String bmi;
   final String classification;
   final String interpretation;
 
-  @override
+  var resultStyle;
+
+
+@override
   Widget build(BuildContext context) {
+  classification == 'Normal' ? resultStyle = kFairResult : resultStyle = kPoorResult;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -45,7 +53,7 @@ class ResultsPage extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         classification.toUpperCase(),
-                        style: kFairResult,
+                        style: resultStyle,
                       ),
                       Text(
                         bmi,
