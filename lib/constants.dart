@@ -30,16 +30,10 @@ const kBottomContainerHeight = 70.0;
 const kPoorResult = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
-  color: Colors.red,
-);
-
-const kFairResult = TextStyle(
-  fontSize: 20,
-  fontWeight: FontWeight.bold,
   color: Colors.orange,
 );
 
-const kRegularResult = TextStyle(
+const kFairResult = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
   color: Colors.green,
