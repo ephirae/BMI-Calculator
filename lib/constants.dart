@@ -6,10 +6,12 @@ const kLabelTextStyle = TextStyle(
 );
 
 const kNumTextStyle = TextStyle(
-  fontSize: 50,
+  fontSize: 40,
   fontWeight: FontWeight.w900,
 
 );
 
 const kActiveCardColour = Color(0xFF1D1E33);
 const kInactiveCardColour = Color(0xFF111328);
+const kBottomContainerColour = Color(0xFFeB1555);
+const kBottomContainerHeight = 80.0;

@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/results_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -156,7 +157,7 @@ class _InputPageState extends State<InputPage> {
                               style: kNumTextStyle,
                             ),
                             Text(
-                              'KG',
+                              'kg',
                               style: kLabelTextStyle,
                             ),
                           ],
@@ -213,7 +214,7 @@ class _InputPageState extends State<InputPage> {
                               style: kNumTextStyle,
                             ),
                             Text(
-                              'YRS',
+                              'yrs',
                               style: kLabelTextStyle,
                             ),
                           ],
@@ -225,7 +226,7 @@ class _InputPageState extends State<InputPage> {
                               icon: FontAwesomeIcons.plus,
                               function: () {
                                 setState(
-                                      () {
+                                  () {
                                     age++;
                                   },
                                 );
@@ -238,7 +239,7 @@ class _InputPageState extends State<InputPage> {
                               icon: FontAwesomeIcons.minus,
                               function: () {
                                 setState(
-                                      () {
+                                  () {
                                     age--;
                                   },
                                 );
@@ -253,6 +254,30 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultsPage();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: kNumTextStyle,
+                ),
+              ),
+              color: kBottomContainerColour,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+            ),
+          )
         ],
       ),
     );
@@ -275,7 +300,7 @@ class RoundIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(width: 46, height: 46),
+      constraints: BoxConstraints.tightFor(width: 36, height: 36),
     );
   }
 }
