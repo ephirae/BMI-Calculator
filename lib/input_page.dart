@@ -19,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Gender activeGender;
   int height = 180;
   int weight = 60;
+  int age = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -195,6 +196,58 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              age.toString(),
+                              style: kNumTextStyle,
+                            ),
+                            Text(
+                              'YRS',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              function: () {
+                                setState(
+                                      () {
+                                    age++;
+                                  },
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              function: () {
+                                setState(
+                                      () {
+                                    age--;
+                                  },
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -207,7 +260,7 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon, this.function});
+  RoundIconButton({@required this.icon, @required this.function});
 
   final IconData icon;
   final Function function;
